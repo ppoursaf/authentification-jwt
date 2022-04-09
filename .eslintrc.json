@@ -1,0 +1,37 @@
+{
+    "env": {
+        "node": true,
+        "commonjs": true
+    },
+    "extends": ["eslint:recommended"],
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    },
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "space-in-brackets": ["error", "always", {
+            "singleValue": false,
+            "objectsInArrays": false,
+            "arraysInArrays": false,
+            "arraysInObjects": false,
+            "objectsInObjects": false,
+            "propertyName": false
+          }]
+    }
+}
