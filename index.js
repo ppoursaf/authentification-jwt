@@ -3,15 +3,22 @@ dotenv.config();
 import Hapi from '@hapi/hapi';
 import mongoose from 'mongoose';
 import UserRoute from './src/app/User/user.route';
+import CurrenciesRoute from './src/app/Currencies/currencies.route';
+import TradesRoute from './src/app/trades/trades.route';
 import jwt from '@hapi/jwt';
-
 
 
 const start = async () => {
 
 	const server = Hapi.server({
 		port: 3000,
-		host: 'localhost'
+		host: 'localhost',
+		routes: {
+			cors: {
+				origin: ['*'], // an array of origins or 'ignore'    
+				credentials: true // boolean - 'Access-Control-Allow-Credentials'
+			}
+		}
 	});
 	await server.register(jwt);
 
@@ -40,7 +47,7 @@ const start = async () => {
 		.then(() => console.log('Connexion à MongoDB réussie !'))
 		.catch(() => console.log('Connexion à MongoDB échouée !'));
 
-	server.route([...UserRoute]);
+	server.route([...UserRoute, ...CurrenciesRoute, ...TradesRoute]);
 };
 
 start();
