@@ -29,4 +29,19 @@ export default [
 			//response: validate.getCurrenciesPerDateResponse,
 		},
 	},
+	{
+		path: '/currencies/price-cmc',
+		method: 'GET',
+		options: {
+			description: 'Get currencies price from CoinMarketCap',
+			auth: false,
+			//validate: { ...validate.getCurrenciesSymbolsRequest, failAction },
+			handler: action.getCurrencyPrice,
+			//response: validate.getCurrenciesPerDateResponse,
+		},
+	},
+	
 ];
+
+
+
